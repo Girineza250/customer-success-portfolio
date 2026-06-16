@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Girineza Honoré — Customer Success Work Samples</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D0D0D;
+      --surface:   #161616;
+      --border:    #2A2A2A;
+      --accent:    #E8FF47;
+      --accent2:   #FF6B35;
+      --text:      #F0F0F0;
+      --muted:     #888;
+      --card:      #1C1C1C;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--accent); letter-spacing: -0.02em;
+    }
+    .nav-tag {
+      font-size: 0.75rem; color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 120px 40px 80px;
+      max-width: 900px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 32px; height: 2px; background: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 560px; margin-bottom: 48px; line-height: 1.7;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 24px;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .hero-meta a {
+      color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .hero-meta a:hover { border-color: var(--accent); }
+
+    /* ── STATS BAR ── */
+    .stats {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px;
+    }
+    .stats-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem; font-weight: 800;
+      color: var(--accent); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── SECTION ── */
+    .section {
+      max-width: 900px; margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .section-eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.9rem; font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── CASE CARD ── */
+    .case-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .case-card:hover {
+      border-color: #444;
+      transform: translateY(-2px);
+    }
+    .case-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--accent);
+    }
+    .case-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .case-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem; font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .case-meta {
+      font-size: 0.8rem; color: var(--muted);
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
+
+    .case-block-label {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 12px;
+    }
+    .case-block p {
+      font-size: 0.9rem; color: #bbb; line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .outcomes {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin-top: 4px;
+    }
+    .outcome-pill {
+      background: rgba(232,255,71,0.07);
+      border: 1px solid rgba(232,255,71,0.25);
+      color: var(--accent);
+      font-size: 0.8rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px;
+    }
+
+    .action-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .action-list li {
+      font-size: 0.9rem; color: #bbb;
+      padding-left: 18px; position: relative; line-height: 1.6;
+    }
+    .action-list li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent2); font-size: 0.8rem;
+    }
+
+    /* ── APPROACH SECTION ── */
+    .approach-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 640px) { .approach-grid { grid-template-columns: 1fr; } }
+
+    .approach-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+    }
+    .approach-icon {
+      font-size: 1.5rem; margin-bottom: 12px;
+    }
+    .approach-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .approach-card p {
+      font-size: 0.875rem; color: var(--muted); line-height: 1.65;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      text-align: center;
+    }
+    footer p { font-size: 0.85rem; color: var(--muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .stats { padding: 32px 20px; }
+      .stats-inner { grid-template-columns: 1fr; gap: 24px; }
+      .section { padding: 60px 20px; }
+      .case-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Girineza Honoré</div>
+    <div class="nav-tag">Customer Success · LadX Application</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Work Samples & Achievements</div>
+    <h1>Owning the<br/><span>customer journey</span><br/>end to end.</h1>
+    <p class="hero-sub">
+      Three real examples of how I have resolved issues fast, built systems that stop repeat problems,
+      tracked feedback, and kept customers satisfied — across enterprise tech, BPO, and team leadership.
+    </p>
+    <div class="hero-meta">
+      <span>📍 Kigali, Rwanda</span>
+      <span>📧 honoregirineza35@gmail.com</span>
+      <span>📞 +250 789 092 774</span>
+      <a href="https://ai-product-portfolio-tau-navy.vercel.app/" target="_blank">↗ Full Portfolio</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-num">95%+</div>
+        <div class="stat-label">Customer Satisfaction Rating</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Reduction in Resolution Time</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years Owning Customer Experiences</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK SAMPLES -->
+  <section class="section">
+    <div class="section-eyebrow">Work Samples</div>
+    <div class="section-title">Three examples that tell the story.</div>
+
+    <!-- CASE 1 -->
+    <div class="case-card reveal">
+      <div class="case-number">Case 01</div>
+      <div class="case-title">Building SOPs & Knowledge Bases That Fixed Root Causes</div>
+      <div class="case-meta">CCI – Customer Contact International &nbsp;·&nbsp; Team Lead &nbsp;·&nbsp; Feb 2021 – Jun 2022</div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <div class="case-block-label">The Problem</div>
+          <p>The team was handling the same customer complaints every day with no consistent resolution path. Agents solved issues from scratch each time — long handling times, inconsistent outcomes, and customers calling back with the same problem a week later.</p>
+        </div>
+        <div class="case-block">
+          <div class="case-block-label">What I Built</div>
+          <ul class="action-list">
+            <li>A structured knowledge base with step-by-step resolution guides for every top recurring issue type</li>
+            <li>SOPs for escalation: when to escalate, who to escalate to, what information to include</li>
+            <li>A daily feedback logging system feeding weekly reports to management</li>
+            <li>A customer follow-up process so escalated cases were closed with the client — not just internally</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-block-label">Outcomes</div>
+      <div class="outcomes">
+        <span class="outcome-pill">↓ 30% average resolution time</span>
+        <span class="outcome-pill">95%+ CSAT sustained</span>
+        <span class="outcome-pill">Repeat complaints declined</span>
+        <span class="outcome-pill">Team consistency improved</span>
+      </div>
+    </div>
+
+    <!-- CASE 2 -->
+    <div class="case-card reveal">
+      <div class="case-number">Case 02</div>
+      <div class="case-title">End-to-End Enterprise Client Experience — Microsoft 365</div>
+      <div class="case-meta">Microsoft 365 &nbsp;·&nbsp; Technical Support Engineer (SCIM) &nbsp;·&nbsp; Jan 2025 – Present</div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <div class="case-block-label">The Context</div>
+          <p>Managing end-to-end customer success for enterprise clients on Microsoft 365 SCIM deployments — environments where any service disruption has immediate, serious business impact. Zero tolerance for issues falling through the cracks.</p>
+        </div>
+        <div class="case-block">
+          <div class="case-block-label">How I Managed It</div>
+          <ul class="action-list">
+            <li>Every case tracked in ZenDesk from first contact to client sign-off — nothing closed until the client confirmed resolution</li>
+            <li>Recurring pain points logged, analysed, and escalated to engineering with clear documentation — fixed at product level, not just case by case</li>
+            <li>Multilingual support delivered across time zones, adapting to each client's technical level</li>
+            <li>Resolution guides built and maintained for the wider team — reducing future handling time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-block-label">Outcomes</div>
+      <div class="outcomes">
+        <span class="outcome-pill">High CSAT across global client base</span>
+        <span class="outcome-pill">Zero critical disruptions</span>
+        <span class="outcome-pill">Recurring issues reduced</span>
+        <span class="outcome-pill">Team knowledge base built</span>
+      </div>
+    </div>
+
+    <!-- CASE 3 -->
+    <div class="case-card reveal">
+      <div class="case-number">Case 03</div>
+      <div class="case-title">High-Volume Multilingual Customer Ownership — Airtel Rwanda</div>
+      <div class="case-meta">ISON BPO Ltd &nbsp;·&nbsp; Customer Care Agent &nbsp;·&nbsp; Feb 2018 – May 2020</div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <div class="case-block-label">The Context</div>
+          <p>Frontline customer support for Airtel Rwanda — mobile money, SIM provisioning, and network troubleshooting — hundreds of interactions per week across English, French, Kinyarwanda, and Kiswahili.</p>
+        </div>
+        <div class="case-block">
+          <div class="case-block-label">How I Owned It</div>
+          <ul class="action-list">
+            <li>Every interaction logged in CRM with full case history, resolution steps, and follow-up notes</li>
+            <li>Communication adapted naturally across languages and customer types — from technical issues to billing disputes</li>
+            <li>Recurring complaint patterns flagged to team leads with enough detail to act on</li>
+            <li>Contributed to process improvements that reduced repeat contacts on specific issue types</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-block-label">Outcomes</div>
+      <div class="outcomes">
+        <span class="outcome-pill">Top-rated agent for CSAT</span>
+        <span class="outcome-pill">Top first-call resolution</span>
+        <span class="outcome-pill">4-language support delivered</span>
+        <span class="outcome-pill">Process improvements flagged</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-eyebrow">My Approach</div>
+    <div class="section-title">How I think about customer success.</div>
+    <div class="approach-grid">
+      <div class="approach-card reveal">
+        <div class="approach-icon">🎯</div>
+        <h3>Own it completely</h3>
+        <p>Every case I touch is mine until the customer confirms it is resolved. I do not pass things on and forget about them.</p>
+      </div>
+      <div class="approach-card reveal">
+        <div class="approach-icon">🔁</div>
+        <h3>Fix root causes, not symptoms</h3>
+        <p>If the same problem keeps coming back, that is a system failure. I track patterns and push for fixes that actually stop the repeat.</p>
+      </div>
+      <div class="approach-card reveal">
+        <div class="approach-icon">📊</div>
+        <h3>Report clearly, act fast</h3>
+        <p>Leadership needs visibility. I track feedback, compile it into clear reports, and flag what needs to change before it becomes a bigger problem.</p>
+      </div>
+      <div class="approach-card reveal">
+        <div class="approach-icon">🌍</div>
+        <h3>Communicate across contexts</h3>
+        <p>Fluent in English, French, Kinyarwanda, and Kiswahili. I adapt to whoever I am talking to — from a technical admin to a first-time user.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Girineza Honoré &nbsp;·&nbsp; Applying for Customer Success Manager — Full Time &nbsp;·&nbsp; <a href="mailto:honoregirineza35@gmail.com">honoregirineza35@gmail.com</a></p>
+    <p style="margin-top: 8px;">
+      <a href="https://ai-product-portfolio-tau-navy.vercel.app/" target="_blank">↗ Full Portfolio</a>
+    </p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
